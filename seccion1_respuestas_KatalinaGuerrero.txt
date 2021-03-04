@@ -1,0 +1,125 @@
+Barracks.gg 
+Katalina Guerrero
+Sección 1: Evaluación de conceptos
+
+1.	Escriba una función en Javascript que reciba un Array de números y muestre por consola
+todos los números separados uno por uno.
+
+function mostrarNumeros(lista) {
+for (i = 0; i < lista.length; i++) {
+    console.log(lista[i]); 
+}
+}
+
+2.	Escriba una animación Keyframe CSS que mueva el elemento desde ‘top:0%’ a ‘top: 100%’
+.elemento {
+  position: absolute;
+  animation-name: bajar;
+  animation-duration: 2s;
+}
+
+@keyframes bajar {
+  from {top:0%;}
+  to {top:100%;}
+}
+
+3.Escriba una función en Javascript que reciba un Array de números y que devuelva un nuevo
+Array solo con los números pares que se encuentren.
+
+function obtenerPares(lista) {
+  var pares = [];
+  for (i = 0; i < lista.length; i++) {
+      if(lista[i] % 2 == 0) {
+      pares.push(lista[i]);
+    }
+  
+}
+  return pares;
+}
+
+4. Escriba una función en Typescript que reciba explícitamente un parámetro del tipo string, que
+devuelva explícitamente un valor del tipo numérico, y que en el cual se devuelva la cantidad
+de caracteres del string pero en valor negativo. EJ: “Auto” devuelve el valor -4.
+
+function contadorLetras(palabra:string):number {
+    let totalLetras : number = 0;
+    totalLetras = palabra.length;
+  return totalLetras * -1;
+}
+
+
+5. Si se requiere instalar una librería llamada “barracks” en un proyecto a través de NPM. ¿Cuál
+de los siguientes comandos es el correcto para lograrlo?
+
+c) npm i barracks
+
+6. Escriba una ‘interface’ de Typescript llamada ‘Animal’ que defina explícitamente un modelo
+de datos con los siguientes atributos; ‘Ojos’ del tipo numérico, ‘Pies’ del tipo Array de string,
+‘Cola’ del tipo booleano, ‘Plumas’ del tipo string o indefinido
+
+interface Animal {
+  Ojos: number;
+  Pies: Array<String> ;
+  Cola: boolean;
+  Plumas: string|undefined;
+}
+
+7. Escriba una función en Javascript, que se ejecute cuando un sitio web se cargue y que
+cambie el color de fondo de la página (body) a color negro.
+
+document.addEventListener('DOMContentLoaded', function() { colorFondo() } );
+function colorFondo() {
+   document.body.style.background = 'black';
+}
+
+8.Escriba una declaración CSS en la cual todos los textos de la página sean blancos, en negrita,
+con separación de letras de 2px y que si el texto no cabe completamente en su contenedor se
+agregue tres puntos ‘…’ al final para acortar
+
+* {           
+  color:white;
+  font-weight: bold;
+  letter-spacing: 2px;
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+9.Escriba una declaración CSS en la cual un botón cambie a color azul cuando el puntero esté
+sobre él, y a color verde cuando se presione.
+
+button:hover {
+  background-color:blue;
+}
+button:active {
+  background-color:green;
+}
+
+10. Si se requiere guardar un nuevo cambio en un repositorio GIT ¿Cuál de los siguientes
+comandos es el correcto?
+
+a) git commit 
+
+11. Escriba una función en Javascript o Typescript, la cual realice una llamada API REST del tipo
+POST a la URL ‘/recibeDatos’, que envíe la fecha actual del sistema, y que muestre en una
+alerta con el código HTTP de respuesta
+
+function fechaSistema() {
+
+  var fechaCompleta = new Date().toJSON().slice(0,10).replace(/-/g,'/');
+
+let _datos= {
+  fecha:fechaCompleta,
+}
+fetch('recibeDatos.html', {
+  method: "POST",
+    body: JSON.stringify(_datos),
+  headers: {"Content-type": "application/json; charset=UTF-8"}
+})
+.then(response => response.json()) 
+.then(json => alert(json))
+.catch(error => alert('Ha ocurrido el siguiente error:' + error, error));
+}
+
+
+
