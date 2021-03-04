@@ -6,12 +6,16 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './account/login/login.component';
 import { RouterModule } from '@angular/router';
 
+import { HttpClientModule } from '@angular/common/http';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot([
       { path: 'app', component: AppComponent },
@@ -19,6 +23,7 @@ import { RouterModule } from '@angular/router';
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]),
   ],
+
   providers: [],
   bootstrap: [AppComponent]
 })
