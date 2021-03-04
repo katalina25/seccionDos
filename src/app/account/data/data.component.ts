@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 
 // NASA https://api.nasa.gov/planetary/apod?api_key=DEMO_KEY&start_date=2021-03-01&end_date=2021-03-03
@@ -24,7 +25,7 @@ export class DataComponent implements OnInit {
   primerURL;
   imagenID = 0;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
 
     this.http.get(this.url).toPromise().then((data: any) => {
 
@@ -63,9 +64,9 @@ export class DataComponent implements OnInit {
     this.showSlides(this.slideIndex);
     this.plusSlides(1);
   }
-
   salir() {
     localStorage.removeItem('tokenLogin');
+
   }
   switchTabs(tab) {
     // Declare all variables
@@ -113,8 +114,8 @@ export class DataComponent implements OnInit {
   currentSlide(n) {
     this.showSlides(this.slideIndex = n);
   }
-  onChange(deviceValue) {
-    this.imagenID = deviceValue;
+  onChange(valorPokemon) {
+    this.imagenID = valorPokemon;
   }
 
 

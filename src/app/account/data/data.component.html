@@ -28,14 +28,12 @@
 
 -->
 
-
-
 <div class="mySlides fade">
-  <img src="{{this.allDataNasa[0]['url']}}" height="500px">
+  <img src="{{this.allDataNasa[2]['url']}}" height="500px">
    <div class="text">
-  <div class="tituloSlide">{{this.allDataNasa[0]['title']}} / {{this.allDataNasa[0]['date']}}</div>
-  <div class="descSlide">{{this.allDataNasa[0]['explanation']}} </div>
-  <div class="copyright">Copyright: {{this.allDataNasa[0]['copyright']}}</div>
+  <div class="tituloSlide">{{this.allDataNasa[2]['title']}} / {{this.allDataNasa[2]['date']}}</div>
+  <div class="descSlide">{{this.allDataNasa[2]['explanation']}} </div>
+  <div class="copyright">Copyright: {{this.allDataNasa[2]['copyright']}}</div>
   </div>
 </div>
 
@@ -48,14 +46,18 @@
   </div>
 </div>
 
+
+
 <div class="mySlides fade">
-  <img src="{{this.allDataNasa[2]['url']}}" height="500px">
+  <img src="{{this.allDataNasa[0]['url']}}" height="500px">
    <div class="text">
-  <div class="tituloSlide">{{this.allDataNasa[2]['title']}} / {{this.allDataNasa[2]['date']}}</div>
-  <div class="descSlide">{{this.allDataNasa[2]['explanation']}} </div>
-  <div class="copyright">Copyright: {{this.allDataNasa[2]['copyright']}}</div>
+  <div class="tituloSlide">{{this.allDataNasa[0]['title']}} / {{this.allDataNasa[0]['date']}}</div>
+  <div class="descSlide">{{this.allDataNasa[0]['explanation']}} </div>
+  <div class="copyright">Copyright: {{this.allDataNasa[0]['copyright']}}</div>
   </div>
 </div>
+
+
 
 
 <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
