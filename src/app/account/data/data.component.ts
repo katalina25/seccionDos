@@ -16,32 +16,56 @@ export class DataComponent implements OnInit {
 
   startDate = diasAtras;
   endDate = today;
-
-
+  idPokemon;
   key = "1MFGbGrschgFIobgt1ZcczMbNiZE5qOw8OXdfpaQ";
   url = 'https://api.nasa.gov/planetary/apod?api_key=' + this.key + '&start_date=' + this.startDate + '&end_date=' + this.endDate;
 
   allDataNasa;
+  primerURL;
+  imagenID = 0;
+
   constructor(private http: HttpClient) {
 
     this.http.get(this.url).toPromise().then((data: any) => {
-      console.log(data);
+
       this.allDataNasa = data;
-      console.log(this.startDate);
-      console.log(this.endDate);
-      console.log(this.url);
+      console.log(this.allDataPokemon);
+      this.primerURL = this.allDataPokemon[0]['url'];
+      this.imagenID = this.primerURL.split('/')[6]
+    });
+    this.pokemon(null);
+  }
+
+  contador = 0;
+  urlPokemon = "https://pokeapi.co/api/v2/pokemon";
+
+  allDataPokemon;
+
+
+
+  pokemon(http: HttpClient) {
+
+    this.http.get(this.urlPokemon).toPromise().then((data: any) => {
+
+      this.allDataPokemon = data["results"];
+
     });
   }
 
 
 
-  slideIndex = 1;
+
+  slideIndex = 0;
   token;
 
   ngOnInit(): void {
     this.token = localStorage.getItem('tokenLogin');
     this.showSlides(this.slideIndex);
+    this.plusSlides(1);
+  }
 
+  salir() {
+    localStorage.removeItem('tokenLogin');
   }
   switchTabs(tab) {
     // Declare all variables
@@ -81,6 +105,7 @@ export class DataComponent implements OnInit {
     }
     slides[this.slideIndex - 1].style.display = "block";
     dots[this.slideIndex - 1].className += " active";
+
   }
   plusSlides(n) {
     this.showSlides(this.slideIndex += n);
@@ -88,6 +113,10 @@ export class DataComponent implements OnInit {
   currentSlide(n) {
     this.showSlides(this.slideIndex = n);
   }
+  onChange(deviceValue) {
+    this.imagenID = deviceValue;
+  }
+
 
 
 }

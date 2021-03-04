@@ -26,6 +26,7 @@ import { DataComponent } from './account/data/data.component';
       { path: 'app-data', component: DataComponent },
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]),
+
   ],
 
   providers: [CookieService],

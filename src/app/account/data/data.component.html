@@ -1,7 +1,7 @@
 <div class="container">
     
 <div class="row">
-    <button class="salir">Salir</button>
+    <button class="salir" (click)="salir()">Salir</button>
 </div>
 <div class="row">
     <p class="token">  {{token}}</p> 
@@ -15,11 +15,25 @@
 <div id="NASA" class="tabcontent">
 
 <div class="slideshow-container">
+<!-- Este método tiene un bug, primero aparecen las tres imagenes,
+  luego funciona al pasar a la siguiente
+
+<div class="mySlides fade" *ngFor="let apod of this.allDataNasa">
+  <img src="{{apod.url}}" height="500px">
+  <div class="text">
+    <div class="tituloSlide">{{apod.title}} / {{apod.date}}</div>
+  <div class="descSlide"> {{apod.explanation}} </div>
+  <div class="copyright">Copyright: {{apod.copyright}}</div>
+  </div> 
+
+-->
+
+
 
 <div class="mySlides fade">
   <img src="{{this.allDataNasa[0]['url']}}" height="500px">
-  <div class="text">
-<div class="tituloSlide">{{this.allDataNasa[0]['title']}}  / {{this.allDataNasa[0]['date']}}</div>
+   <div class="text">
+  <div class="tituloSlide">{{this.allDataNasa[0]['title']}} / {{this.allDataNasa[0]['date']}}</div>
   <div class="descSlide">{{this.allDataNasa[0]['explanation']}} </div>
   <div class="copyright">Copyright: {{this.allDataNasa[0]['copyright']}}</div>
   </div>
@@ -43,22 +57,33 @@
   </div>
 </div>
 
+
 <a class="prev" (click)="plusSlides(-1)">&#10094;</a>
 <a class="next" (click)="plusSlides(1)">&#10095;</a>
 
 </div>
 <br>
 
-<!-- The dots/circles -->
+<!-- dots -->
 <div style="text-align:center">
   <span class="dot" (click)="currentSlide(1)"></span>
   <span class="dot" (click)="currentSlide(2)"></span>
   <span class="dot" (click)="currentSlide(3)"></span>
 </div>
 </div>
+
+
 <div id="POKEMON" class="tabcontent">
- <h3>POKÉMON</h3>
- <p>Paris is the capital of France.</p>
+ <div class="row rowSelect">
+    <select name="slcPokemon" id="slcPokemon" (change)="onChange($event.target.value)">
+        <option *ngFor="let pokemon of this.allDataPokemon" value="{{pokemon.url.split('/')[6]}}">{{pokemon.name}}</option>
+    </select>
+    
+    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/{{this.imagenID}}.png" alt="" height="250px">
+ </div>
+ 
+ 
+
 </div>
 
 </div>
