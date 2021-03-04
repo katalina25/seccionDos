@@ -8,6 +8,6 @@ html,
 }
 
 body {
-  background: url("assets/login.jpg");
+  background: url("/assets/login.jpg");
   background-size: cover;
 }

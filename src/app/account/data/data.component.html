@@ -1,0 +1,65 @@
+<div class="container">
+    
+<div class="row">
+    <button class="salir">Salir</button>
+</div>
+<div class="row">
+    <p class="token">  {{token}}</p> 
+</div>
+<div class="row">
+<div class="tab">
+  <button class="tablinks" (click)="switchTabs('NASA')">NASA APOD</button>
+  <button class="tablinks" (click)="switchTabs('POKEMON')">POKÉMON</button>
+</div>
+<!-- Tab content -->
+<div id="NASA" class="tabcontent">
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <img src="{{this.allDataNasa[0]['url']}}" height="500px">
+  <div class="text">
+<div class="tituloSlide">{{this.allDataNasa[0]['title']}}  / {{this.allDataNasa[0]['date']}}</div>
+  <div class="descSlide">{{this.allDataNasa[0]['explanation']}} </div>
+  <div class="copyright">Copyright: {{this.allDataNasa[0]['copyright']}}</div>
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="{{this.allDataNasa[1]['url']}}" height="500px">
+   <div class="text">
+  <div class="tituloSlide">{{this.allDataNasa[1]['title']}} / {{this.allDataNasa[1]['date']}}</div>
+  <div class="descSlide">{{this.allDataNasa[1]['explanation']}} </div>
+  <div class="copyright">Copyright: {{this.allDataNasa[1]['copyright']}}</div>
+  </div>
+</div>
+
+<div class="mySlides fade">
+  <img src="{{this.allDataNasa[2]['url']}}" height="500px">
+   <div class="text">
+  <div class="tituloSlide">{{this.allDataNasa[2]['title']}} / {{this.allDataNasa[2]['date']}}</div>
+  <div class="descSlide">{{this.allDataNasa[2]['explanation']}} </div>
+  <div class="copyright">Copyright: {{this.allDataNasa[2]['copyright']}}</div>
+  </div>
+</div>
+
+<a class="prev" (click)="plusSlides(-1)">&#10094;</a>
+<a class="next" (click)="plusSlides(1)">&#10095;</a>
+
+</div>
+<br>
+
+<!-- The dots/circles -->
+<div style="text-align:center">
+  <span class="dot" (click)="currentSlide(1)"></span>
+  <span class="dot" (click)="currentSlide(2)"></span>
+  <span class="dot" (click)="currentSlide(3)"></span>
+</div>
+</div>
+<div id="POKEMON" class="tabcontent">
+ <h3>POKÉMON</h3>
+ <p>Paris is the capital of France.</p>
+</div>
+
+</div>
+</div>

@@ -7,12 +7,15 @@ import { LoginComponent } from './account/login/login.component';
 import { RouterModule } from '@angular/router';
 
 import { HttpClientModule } from '@angular/common/http';
+import { CookieService } from 'ngx-cookie-service';
+import { DataComponent } from './account/data/data.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    DataComponent
   ],
   imports: [
     HttpClientModule,
@@ -20,11 +23,12 @@ import { HttpClientModule } from '@angular/common/http';
     RouterModule.forRoot([
       { path: 'app', component: AppComponent },
       { path: 'login', component: LoginComponent },
+      { path: 'app-data', component: DataComponent },
       { path: '', redirectTo: '/login', pathMatch: 'full' },
     ]),
   ],
 
-  providers: [],
+  providers: [CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

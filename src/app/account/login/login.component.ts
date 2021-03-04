@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
+
 
 
   postData = {
@@ -18,13 +20,18 @@ export class LoginComponent implements OnInit {
 
   token;
   constructor(private http: HttpClient) {
+
     this.http.post(this.url, this.postData).toPromise().then((data: any) => {
       console.log(data);
-
       this.token = Object.values(data);
+      localStorage.setItem("tokenLogin", this.token);
+
     });
 
   }
+
+
+
   ngOnInit(): void {
   }
 
